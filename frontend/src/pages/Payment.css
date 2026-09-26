@@ -1,0 +1,552 @@
+/* ==========================================
+   SMARTPARK PAYMENT PAGE
+========================================== */
+
+.payment-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(16, 185, 129, 0.10),
+      transparent 35%
+    ),
+    #f8fafc;
+}
+
+
+/* ==========================================
+   PAYMENT CARD
+========================================== */
+
+.payment-card {
+  width: 100%;
+  max-width: 620px;
+  padding: 35px;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.12),
+    0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.payment-label {
+  display: inline-block;
+
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.payment-card h1 {
+  margin: 12px 0 8px;
+
+  color: #111827;
+
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.payment-card > p {
+  color: #64748b;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   BOOKING SUMMARY
+========================================== */
+
+.payment-summary {
+  margin-top: 25px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.payment-summary > div {
+  padding: 16px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+}
+
+.payment-summary span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.payment-summary strong {
+  color: #111827;
+
+  font-size: 15px;
+}
+
+
+/* ==========================================
+   PAYMENT METHOD TITLE
+========================================== */
+
+.payment-card h3 {
+  margin-top: 30px;
+  margin-bottom: 14px;
+
+  color: #1e293b;
+
+  font-size: 17px;
+}
+
+
+/* ==========================================
+   PAYMENT METHODS
+========================================== */
+
+.payment-methods {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.payment-method {
+  width: 100%;
+
+  min-height: 76px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border: 2px solid #e5e7eb;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  position: relative;
+
+  transition: 0.2s ease;
+}
+
+.payment-method:hover {
+  border-color: #93c5fd;
+
+  background: #f8fbff;
+
+  transform: translateY(-1px);
+}
+
+.payment-method.selected {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+
+  box-shadow:
+    0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
+
+/* ==========================================
+   PAYMENT ICON
+========================================== */
+
+.payment-icon {
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #f1f5f9;
+
+  font-size: 23px;
+}
+
+.payment-method.selected .payment-icon {
+  background: #dbeafe;
+}
+
+
+/* ==========================================
+   PAYMENT METHOD TEXT
+========================================== */
+
+.payment-method-info {
+  flex: 1;
+}
+
+.payment-method-info strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #111827;
+
+  font-size: 16px;
+}
+
+.payment-method-info small {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+/* ==========================================
+   SELECTED CHECK
+========================================== */
+
+.selected-check {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* ==========================================
+   SELECTED PAYMENT MESSAGE
+========================================== */
+
+.selected-payment-message {
+  margin-top: 15px;
+
+  padding: 12px 15px;
+
+  border-radius: 10px;
+
+  background: #ecfdf5;
+
+  border: 1px solid #bbf7d0;
+
+  color: #166534;
+
+  font-size: 13px;
+}
+
+.selected-payment-message strong {
+  color: #15803d;
+}
+
+
+/* ==========================================
+   PAY BUTTON
+========================================== */
+
+.pay-button {
+  width: 100%;
+
+  min-height: 54px;
+
+  margin-top: 22px;
+
+  padding: 14px 20px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.25);
+
+  transition: 0.2s ease;
+}
+
+.pay-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.pay-button:disabled {
+  background: #cbd5e1;
+
+  color: #64748b;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-button {
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 13px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  transition: 0.2s ease;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+
+  color: #1e293b;
+}
+
+
+/* ==========================================
+   PROCESSING
+========================================== */
+
+.payment-loading {
+  width: 70px;
+  height: 70px;
+
+  margin: 20px auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  font-size: 34px;
+
+  animation: paymentPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes paymentPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+
+/* ==========================================
+   SUCCESS SCREEN
+========================================== */
+
+.success-card {
+  text-align: center;
+}
+
+.payment-success-icon {
+  width: 82px;
+  height: 82px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+
+  color: #16a34a;
+
+  font-size: 45px;
+  font-weight: 800;
+
+  box-shadow:
+    0 10px 25px rgba(22, 163, 74, 0.15);
+}
+
+.success-card h1 {
+  color: #15803d;
+}
+
+.payment-success-details {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+
+  text-align: left;
+}
+
+.payment-success-details p {
+  margin: 10px 0;
+
+  color: #475569;
+}
+
+.payment-success-details strong {
+  color: #111827;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .payment-page {
+    padding: 20px 12px;
+
+    align-items: flex-start;
+  }
+
+  .payment-card {
+    margin-top: 15px;
+
+    padding: 23px 17px;
+
+    border-radius: 18px;
+  }
+
+  .payment-card h1 {
+    font-size: 26px;
+  }
+
+  .payment-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-method {
+    min-height: 70px;
+
+    padding: 12px;
+  }
+
+  .payment-icon {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    font-size: 20px;
+  }
+
+  .payment-method-info strong {
+    font-size: 14px;
+  }
+
+  .payment-method-info small {
+    font-size: 11px;
+  }
+
+  .pay-button {
+    font-size: 16px;
+  }
+}
