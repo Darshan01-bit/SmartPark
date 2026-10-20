@@ -66,3 +66,9 @@ desktop.ini
 # ---------------------------------------------------------
 *.tmp
 *.temp
+
+# Local database backup containing user data
+docker/mysql/init/
+.env
+# Personal shortcut files
+*.lnk

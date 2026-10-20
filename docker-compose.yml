@@ -1,0 +1,59 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: smartpark-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: smartpark
+    ports:
+      - "3307:3306"
+    volumes:
+      - smartpark_db_data:/var/lib/mysql
+      - ./docker/mysql/init/01-smartpark.sql:/docker-entrypoint-initdb.d/01-smartpark.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  backend:
+    build:
+      context: ./backend/backend
+    container_name: smartpark-backend
+    restart: unless-stopped
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/smartpark"
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      TZ: Asia/Kolkata
+      JAVA_TOOL_OPTIONS: "-Duser.timezone=Asia/Kolkata"
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  ml-service:
+    build:
+      context: ./ml-service
+    container_name: smartpark-ml
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: smartpark-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+      - ml-service
+
+volumes:
+  smartpark_db_data:
