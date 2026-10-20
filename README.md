@@ -1976,3 +1976,4 @@ Before considering the project ready for demonstration, verify:
 ![SmartPark AI Prediction](screenshots/10.2-aiprediction.png)
 ![SmartPark AI Prediction](screenshots/10.3-aiprediction.png)
 ![SmartPark AI Prediction](screenshots/10.4-aiprediction.png)
+Automated CI/CD trigger verification.
